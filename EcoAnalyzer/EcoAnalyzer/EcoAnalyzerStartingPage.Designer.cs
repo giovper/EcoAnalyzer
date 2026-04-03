@@ -39,36 +39,36 @@
             // 
             // txt_Location
             // 
-            txt_Location.Font = new Font("Saira", 8.25F);
+            txt_Location.Font = new Font("Microsoft Sans Serif", 8.25F);
             txt_Location.Location = new Point(34, 208);
             txt_Location.Name = "txt_Location";
-            txt_Location.Size = new Size(272, 25);
+            txt_Location.Size = new Size(272, 20);
             txt_Location.TabIndex = 0;
             // 
             // dtp_StartDate
             // 
-            dtp_StartDate.CustomFormat = "MM/dd/yyyy hh:mm:ss";
-            dtp_StartDate.Font = new Font("Saira", 8.25F);
+            dtp_StartDate.CustomFormat = "MM/dd/yyyy hh:mm";
+            dtp_StartDate.Font = new Font("Microsoft Sans Serif", 8.25F);
             dtp_StartDate.Format = DateTimePickerFormat.Custom;
             dtp_StartDate.Location = new Point(350, 206);
             dtp_StartDate.Name = "dtp_StartDate";
-            dtp_StartDate.Size = new Size(191, 25);
+            dtp_StartDate.Size = new Size(191, 20);
             dtp_StartDate.TabIndex = 1;
             // 
             // dtp_EndDate
             // 
-            dtp_EndDate.CustomFormat = "MM/dd/yyyy hh:mm:ss";
-            dtp_EndDate.Font = new Font("Saira", 8.25F);
+            dtp_EndDate.CustomFormat = "MM/dd/yyyy hh:mm";
+            dtp_EndDate.Font = new Font("Microsoft Sans Serif", 8.25F);
             dtp_EndDate.Format = DateTimePickerFormat.Custom;
             dtp_EndDate.Location = new Point(561, 206);
             dtp_EndDate.Name = "dtp_EndDate";
-            dtp_EndDate.Size = new Size(191, 25);
+            dtp_EndDate.Size = new Size(191, 20);
             dtp_EndDate.TabIndex = 2;
             // 
             // pnl_TitleLogo
             // 
             pnl_TitleLogo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pnl_TitleLogo.BackgroundImage = EcoAnalyzer.Properties.Resources.cooltext505340410401435;
+            pnl_TitleLogo.BackgroundImage = Properties.Resources.cooltext505340410401435;
             pnl_TitleLogo.BackgroundImageLayout = ImageLayout.Zoom;
             pnl_TitleLogo.Location = new Point(121, 27);
             pnl_TitleLogo.Name = "pnl_TitleLogo";
@@ -77,7 +77,7 @@
             // 
             // lbl_Location
             // 
-            lbl_Location.Font = new Font("Saira", 11.999999F);
+            lbl_Location.Font = new Font("Microsoft Sans Serif", 11.999999F);
             lbl_Location.Location = new Point(34, 179);
             lbl_Location.Name = "lbl_Location";
             lbl_Location.Size = new Size(100, 23);
@@ -86,7 +86,7 @@
             // 
             // lbl_StartDate
             // 
-            lbl_StartDate.Font = new Font("Saira", 11.999999F);
+            lbl_StartDate.Font = new Font("Microsoft Sans Serif", 11.999999F);
             lbl_StartDate.Location = new Point(350, 177);
             lbl_StartDate.Name = "lbl_StartDate";
             lbl_StartDate.Size = new Size(100, 23);
@@ -95,14 +95,14 @@
             // 
             // lbl_EndDate
             // 
-            lbl_EndDate.Font = new Font("Saira", 11.999999F);
+            lbl_EndDate.Font = new Font("Microsoft Sans Serif", 11.999999F);
             lbl_EndDate.Location = new Point(561, 177);
             lbl_EndDate.Name = "lbl_EndDate";
             lbl_EndDate.Size = new Size(100, 23);
             lbl_EndDate.TabIndex = 6;
             lbl_EndDate.Text = "End Time";
             // 
-            // EcoAnalyzer
+            // EcoAnalyzerStartingPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -115,7 +115,7 @@
             Controls.Add(dtp_EndDate);
             Controls.Add(dtp_StartDate);
             Controls.Add(txt_Location);
-            Name = "EcoAnalyzer";
+            Name = "EcoAnalyzerStartingPage";
             Text = "EcoAnalyzer";
             ResumeLayout(false);
             PerformLayout();
