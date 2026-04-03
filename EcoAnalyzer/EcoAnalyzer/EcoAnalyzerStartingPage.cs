@@ -10,5 +10,15 @@ namespace EcoAnalyzer
         {
             InitializeComponent();
         }
+
+        private void btn_ThemeDark_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_LightTheme_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
