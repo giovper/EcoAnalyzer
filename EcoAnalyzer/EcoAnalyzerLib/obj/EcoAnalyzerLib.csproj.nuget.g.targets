@@ -1,2 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)c1.win\10.0.20252.761\buildTransitive\net462\C1.Win.targets" Condition="Exists('$(NuGetPackageRoot)c1.win\10.0.20252.761\buildTransitive\net462\C1.Win.targets')" />
+    <Import Project="$(NuGetPackageRoot)c1.win.ribbon\10.0.20252.761\buildTransitive\net462\C1.Win.Ribbon.targets" Condition="Exists('$(NuGetPackageRoot)c1.win.ribbon\10.0.20252.761\buildTransitive\net462\C1.Win.Ribbon.targets')" />
+    <Import Project="$(NuGetPackageRoot)c1.win.input\10.0.20252.761\buildTransitive\net462\C1.Win.Input.targets" Condition="Exists('$(NuGetPackageRoot)c1.win.input\10.0.20252.761\buildTransitive\net462\C1.Win.Input.targets')" />
+    <Import Project="$(NuGetPackageRoot)c1.win.dx\10.0.20252.761\buildTransitive\net462\C1.Win.DX.targets" Condition="Exists('$(NuGetPackageRoot)c1.win.dx\10.0.20252.761\buildTransitive\net462\C1.Win.DX.targets')" />
+    <Import Project="$(NuGetPackageRoot)c1.chart\10.0.20252.61\buildTransitive\netstandard2.0\C1.Chart.targets" Condition="Exists('$(NuGetPackageRoot)c1.chart\10.0.20252.61\buildTransitive\netstandard2.0\C1.Chart.targets')" />
+    <Import Project="$(NuGetPackageRoot)c1.win.flexchart\10.0.20252.761\buildTransitive\net462\C1.Win.FlexChart.targets" Condition="Exists('$(NuGetPackageRoot)c1.win.flexchart\10.0.20252.761\buildTransitive\net462\C1.Win.FlexChart.targets')" />
+  </ImportGroup>
+</Project>
