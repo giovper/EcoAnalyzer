@@ -35,6 +35,7 @@
             lbl_Location = new Label();
             lbl_StartDate = new Label();
             lbl_EndDate = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // txt_Location
@@ -102,12 +103,23 @@
             lbl_EndDate.TabIndex = 6;
             lbl_EndDate.Text = "End Time";
             // 
+            // button1
+            // 
+            button1.Location = new Point(315, 257);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 7;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // EcoAnalyzerStartingPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(777, 312);
+            Controls.Add(button1);
             Controls.Add(lbl_Location);
             Controls.Add(lbl_StartDate);
             Controls.Add(lbl_EndDate);
@@ -130,5 +142,6 @@
         private Label lbl_Location;
         private Label lbl_StartDate;
         private Label lbl_EndDate;
+        private Button button1;
     }
 }

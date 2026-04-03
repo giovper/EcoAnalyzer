@@ -10,5 +10,10 @@ namespace EcoAnalyzer
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Temp().ShowDialog();
+        }
     }
 }
