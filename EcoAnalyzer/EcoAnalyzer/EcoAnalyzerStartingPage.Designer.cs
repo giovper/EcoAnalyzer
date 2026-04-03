@@ -1,6 +1,6 @@
 ﻿namespace EcoAnalyzer
 {
-    partial class EcoAnalyzer
+    partial class EcoAnalyzerStartingPage
     {
         /// <summary>
         ///  Required designer variable.

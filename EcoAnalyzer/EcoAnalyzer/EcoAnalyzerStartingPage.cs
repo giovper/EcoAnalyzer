@@ -4,9 +4,9 @@
 
 namespace EcoAnalyzer
 {
-    public partial class EcoAnalyzer : Form
+    public partial class EcoAnalyzerStartingPage : Form
     {
-        public EcoAnalyzer()
+        public EcoAnalyzerStartingPage()
         {
             InitializeComponent();
         }
