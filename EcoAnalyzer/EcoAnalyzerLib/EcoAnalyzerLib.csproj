@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="C1.Win.FlexChart" Version="10.0.20252.761" />
-  </ItemGroup>
-
 </Project>

@@ -63,6 +63,16 @@ namespace EcoAnalyzer.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap back_arrow {
+            get {
+                object obj = ResourceManager.GetObject("back-arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cooltext505340410401435 {
             get {
                 object obj = ResourceManager.GetObject("cooltext505340410401435", resourceCulture);
@@ -96,6 +106,16 @@ namespace EcoAnalyzer.Properties {
         internal static System.Drawing.Bitmap night_mode1 {
             get {
                 object obj = ResourceManager.GetObject("night-mode1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_engine {
+            get {
+                object obj = ResourceManager.GetObject("search-engine", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

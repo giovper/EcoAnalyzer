@@ -1,80 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2peDZNfk6Q8=",
+  "dgSpecHash": "6ernz4uDDAY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Utente\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Utente\\.nuget\\packages\\c1.chart\\10.0.20252.61\\c1.chart.10.0.20252.61.nupkg.sha512",
-    "C:\\Users\\Utente\\.nuget\\packages\\c1.win\\10.0.20252.761\\c1.win.10.0.20252.761.nupkg.sha512",
-    "C:\\Users\\Utente\\.nuget\\packages\\c1.win.dx\\10.0.20252.761\\c1.win.dx.10.0.20252.761.nupkg.sha512",
-    "C:\\Users\\Utente\\.nuget\\packages\\c1.win.flexchart\\10.0.20252.761\\c1.win.flexchart.10.0.20252.761.nupkg.sha512",
-    "C:\\Users\\Utente\\.nuget\\packages\\c1.win.input\\10.0.20252.761\\c1.win.input.10.0.20252.761.nupkg.sha512",
-    "C:\\Users\\Utente\\.nuget\\packages\\c1.win.ribbon\\10.0.20252.761\\c1.win.ribbon.10.0.20252.761.nupkg.sha512",
-    "C:\\Users\\Utente\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
-    "C:\\Users\\Utente\\.nuget\\packages\\system.io.filesystem.accesscontrol\\5.0.0\\system.io.filesystem.accesscontrol.5.0.0.nupkg.sha512",
-    "C:\\Users\\Utente\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
-    "C:\\Users\\Utente\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512"
-  ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "message": "Il pacchetto 'C1.Win 10.0.20252.761' è stato ripristinato mediante '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' e non mediante il framework di destinazione del progetto 'net9.0'. Questo pacchetto potrebbe non essere completamente compatibile con il progetto.",
-      "projectPath": "C:\\Users\\Utente\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\Utente\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
-      "libraryId": "C1.Win",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "message": "Il pacchetto 'C1.Win.DX 10.0.20252.761' è stato ripristinato mediante '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' e non mediante il framework di destinazione del progetto 'net9.0'. Questo pacchetto potrebbe non essere completamente compatibile con il progetto.",
-      "projectPath": "C:\\Users\\Utente\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\Utente\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
-      "libraryId": "C1.Win.DX",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "message": "Il pacchetto 'C1.Win.FlexChart 10.0.20252.761' è stato ripristinato mediante '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' e non mediante il framework di destinazione del progetto 'net9.0'. Questo pacchetto potrebbe non essere completamente compatibile con il progetto.",
-      "projectPath": "C:\\Users\\Utente\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\Utente\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
-      "libraryId": "C1.Win.FlexChart",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "message": "Il pacchetto 'C1.Win.Input 10.0.20252.761' è stato ripristinato mediante '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' e non mediante il framework di destinazione del progetto 'net9.0'. Questo pacchetto potrebbe non essere completamente compatibile con il progetto.",
-      "projectPath": "C:\\Users\\Utente\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\Utente\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
-      "libraryId": "C1.Win.Input",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "message": "Il pacchetto 'C1.Win.Ribbon 10.0.20252.761' è stato ripristinato mediante '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' e non mediante il framework di destinazione del progetto 'net9.0'. Questo pacchetto potrebbe non essere completamente compatibile con il progetto.",
-      "projectPath": "C:\\Users\\Utente\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\Utente\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
-      "libraryId": "C1.Win.Ribbon",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    }
-  ]
+  "projectFilePath": "C:\\Users\\gvnnp\\Source\\Repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
 }

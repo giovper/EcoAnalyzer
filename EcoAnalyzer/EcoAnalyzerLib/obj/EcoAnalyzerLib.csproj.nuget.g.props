@@ -5,21 +5,12 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Utente\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages;C:\Program Files (x86)\Microsoft\Xamarin\NuGet\</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\gvnnp\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.14.2</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.14.1</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <SourceRoot Include="C:\Users\Utente\.nuget\packages\" />
+    <SourceRoot Include="C:\Users\gvnnp\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
-    <SourceRoot Include="C:\Program Files (x86)\Microsoft\Xamarin\NuGet\" />
   </ItemGroup>
-  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgC1_Win Condition=" '$(PkgC1_Win)' == '' ">C:\Users\Utente\.nuget\packages\c1.win\10.0.20252.761</PkgC1_Win>
-    <PkgC1_Win_Ribbon Condition=" '$(PkgC1_Win_Ribbon)' == '' ">C:\Users\Utente\.nuget\packages\c1.win.ribbon\10.0.20252.761</PkgC1_Win_Ribbon>
-    <PkgC1_Win_Input Condition=" '$(PkgC1_Win_Input)' == '' ">C:\Users\Utente\.nuget\packages\c1.win.input\10.0.20252.761</PkgC1_Win_Input>
-    <PkgC1_Win_DX Condition=" '$(PkgC1_Win_DX)' == '' ">C:\Users\Utente\.nuget\packages\c1.win.dx\10.0.20252.761</PkgC1_Win_DX>
-    <PkgC1_Chart Condition=" '$(PkgC1_Chart)' == '' ">C:\Users\Utente\.nuget\packages\c1.chart\10.0.20252.61</PkgC1_Chart>
-    <PkgC1_Win_FlexChart Condition=" '$(PkgC1_Win_FlexChart)' == '' ">C:\Users\Utente\.nuget\packages\c1.win.flexchart\10.0.20252.761</PkgC1_Win_FlexChart>
-  </PropertyGroup>
 </Project>
