@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ScottPlot.WinForms" Version="5.1.58" />
+	  <PackageReference Include="GMap.NET.WinForms" Version="2.1.7" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EcoAnalyzerLib\EcoAnalyzerLib.csproj" />
+	  <ProjectReference Include="..\EcoAnalyzerLib\EcoAnalyzerLib.csproj" />
   </ItemGroup>
 
   <ItemGroup>

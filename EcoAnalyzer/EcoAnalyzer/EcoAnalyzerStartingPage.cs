@@ -1,3 +1,4 @@
+
 //LOGHI
 // https://cooltext.com/
 // https://www.flamingtext.com/Cool-Text-Generator/
@@ -12,16 +13,11 @@ namespace EcoAnalyzer
         public EcoAnalyzerStartingPage()
         {
             InitializeComponent();
-        }
-
-        private void btn_ThemeDark_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_LightTheme_Click(object sender, EventArgs e)
-        {
-
+            gMapControl.MapProvider = GMap.NET.MapProviders.GMapProviders.GoogleHybridMap;
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
+            gMapControl.ShowCenter = false;
+            gMapControl.DragButton = MouseButtons.Left;
+            gMapControl.DisableAltForSelection = true;
         }
 
         private void btn_Search_Click(object sender, EventArgs e)
