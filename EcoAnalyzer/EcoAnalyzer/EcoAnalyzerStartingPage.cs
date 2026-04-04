@@ -1,3 +1,4 @@
+
 //LOGHI
 // https://cooltext.com/
 // https://www.flamingtext.com/Cool-Text-Generator/
@@ -11,9 +12,14 @@ namespace EcoAnalyzer
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_ThemeDark_Click(object sender, EventArgs e)
         {
-            new Temp().ShowDialog();
+
+        }
+
+        private void btn_LightTheme_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
