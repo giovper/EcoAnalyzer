@@ -31,14 +31,11 @@ namespace EcoAnalyzer
             GenerateHeader();
             GenerateLegend();
             weatherService = new();
-
-            GatherGraphData();
-            GenerateGraph();
         }
 
         private void GenerateHeader()
         {
-            txt_Location.Text = $"{currentDomain.Longitude} {currentDomain.Latitude}";
+            txt_Location.Text = $"{currentDomain.Coordinates.Lat}°N {currentDomain.Coordinates.Lng}°E";
             dtp_StartDate.Value = currentDomain.StartingTime;
             dtp_EndDate.Value = currentDomain.EndingTime;
         }
@@ -71,6 +68,7 @@ namespace EcoAnalyzer
 
                 Label lbl = new();
                 lbl.Name = $"lbl_{txt}";
+                lbl.AutoSize = true;
                 lbl.Text = txt;
                 lbl.TextAlign = ContentAlignment.MiddleLeft;
 
@@ -96,6 +94,7 @@ namespace EcoAnalyzer
         private void ShowFeatureLine(RecordedFeature rc, bool shouldShowNow)
         {
             featureLines[rc].IsVisible = shouldShowNow;
+            plt_Plot.Plot.Axes.AutoScale();
             plt_Plot.Refresh();
         }
 
@@ -128,22 +127,29 @@ namespace EcoAnalyzer
 
                     featureLines[rc] = plt.Add.ScatterLine(x, y, new ScottPlot.Color(c));
                     featureLines[rc].LegendText = txt;
-                   
+
                 }
             }
 
+            plt.Axes.AutoScale();
             plt.HideLegend();
             plt_Plot.Refresh();
         }
 
-        private void GatherGraphData()
+        private async Task GatherGraphData()
         {
-            recordPeriod = weatherService.GetRecordsFromDomain(currentDomain);
+            recordPeriod = await weatherService.GetRecordsFromDomain(currentDomain);
         }
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private async void EcoAnalyzerGraphPage_Load(object sender, EventArgs e)
+        {
+            await GatherGraphData();
+            GenerateGraph();
         }
     }
 }

@@ -8,16 +8,14 @@ namespace EcoAnalyzerLib
 {
     public struct RecordDomain
     {
-        public float Latitude;
-        public float Longitude;
+        public (float Lat, float Lng) Coordinates;
         public DateTime StartingTime;
         public DateTime EndingTime;
 
         public RecordDomain() { }
-        public RecordDomain(float latitude, float longitude, DateTime startingTime, DateTime endingTime)
+        public RecordDomain((float, float) coordinates, DateTime startingTime, DateTime endingTime)
         {
-            Latitude = latitude;
-            Longitude = longitude;
+            Coordinates = coordinates;
             StartingTime = startingTime;
             EndingTime = endingTime;
         }

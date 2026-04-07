@@ -3,34 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.NetworkInformation;
 using System.Numerics;
 
 namespace EcoAnalyzerLib
 {
     public class RecordPeriod
     {
-        // è la classe che tiene tutti i dati di un periodo
-        // tipo possiede per tutti gli istanti del periodo o qualcosa del genere
+        public RecordDomain Domain { get; set; }
+        public Dictionary<RecordedFeature, List<Vector2>> Data { get; set; }
+        
+        public RecordPeriod() // For JSON deserialization
+        {
+            Data = new Dictionary<RecordedFeature, List<Vector2>>();
+        }
+        public RecordPeriod(RecordDomain domain)
+        {
+            Domain = domain;
+            Data = new Dictionary<RecordedFeature, List<Vector2>>();
+        }
+        public RecordPeriod(RecordDomain domain, Dictionary<RecordedFeature, List<Vector2>> data)
+        {
+            Domain = domain;
+            Data = data;
+        }
 
         public List<Vector2> GetAllValuesForFeature(RecordedFeature rf)
         {
             // Vector2.x = valore da 0.0 a 1.0 di quanto è passato del periodo in quella singola misurazione
             // Vector2.y = valore della feature
-            //throw new NotImplementedException();
-
-            var l = new List<Vector2>();
-            if (rf == RecordedFeature.Temperature)
-            {
-                l.Add(new Vector2(0.1f, 10));
-                l.Add(new Vector2(0.4f, 50));
-                l.Add(new Vector2(0.8f, 10));
-            }
-            else
-            {
-                l.Add(new Vector2(0.1f, 10));
-                l.Add(new Vector2(0.5f, 50));
-            }
-            return l;
+            return Data[rf];
         }
     }
 }

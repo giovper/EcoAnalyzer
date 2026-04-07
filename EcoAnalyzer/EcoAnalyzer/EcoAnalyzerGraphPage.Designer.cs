@@ -30,6 +30,7 @@
         {
             btn_Back = new Button();
             tbl_MainInput = new TableLayoutPanel();
+            lbl_New = new Label();
             lbl_Location = new Label();
             dtp_StartDate = new DateTimePicker();
             lbl_StartDate = new Label();
@@ -42,7 +43,6 @@
             tbl_Legend = new TableLayoutPanel();
             tbl_LegendButtons = new TableLayoutPanel();
             lbl_Legend = new Label();
-            lbl_New = new Label();
             tbl_MainInput.SuspendLayout();
             tbl_PlotMain.SuspendLayout();
             tbl_Legend.SuspendLayout();
@@ -84,9 +84,18 @@
             tbl_MainInput.Size = new Size(697, 56);
             tbl_MainInput.TabIndex = 12;
             // 
+            // lbl_New
+            // 
+            lbl_New.Font = new Font("Microsoft Sans Serif", 8.999999F);
+            lbl_New.Location = new Point(610, 0);
+            lbl_New.Name = "lbl_New";
+            lbl_New.Size = new Size(84, 20);
+            lbl_New.TabIndex = 14;
+            lbl_New.Text = "New Search";
+            // 
             // lbl_Location
             // 
-            lbl_Location.Font = new Font("Saira", 8.999999F);
+            lbl_Location.Font = new Font("Microsoft Sans Serif", 8.999999F);
             lbl_Location.Location = new Point(3, 0);
             lbl_Location.Name = "lbl_Location";
             lbl_Location.Size = new Size(100, 20);
@@ -98,16 +107,16 @@
             dtp_StartDate.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dtp_StartDate.CustomFormat = "MM/dd/yyyy hh:mm";
             dtp_StartDate.Enabled = false;
-            dtp_StartDate.Font = new Font("Saira", 8.25F);
+            dtp_StartDate.Font = new Font("Microsoft Sans Serif", 8.25F);
             dtp_StartDate.Format = DateTimePickerFormat.Custom;
             dtp_StartDate.Location = new Point(288, 23);
             dtp_StartDate.Name = "dtp_StartDate";
-            dtp_StartDate.Size = new Size(155, 25);
+            dtp_StartDate.Size = new Size(155, 20);
             dtp_StartDate.TabIndex = 1;
             // 
             // lbl_StartDate
             // 
-            lbl_StartDate.Font = new Font("Saira", 8.999999F);
+            lbl_StartDate.Font = new Font("Microsoft Sans Serif", 8.999999F);
             lbl_StartDate.Location = new Point(288, 0);
             lbl_StartDate.Name = "lbl_StartDate";
             lbl_StartDate.Size = new Size(100, 20);
@@ -116,7 +125,7 @@
             // 
             // lbl_EndDate
             // 
-            lbl_EndDate.Font = new Font("Saira", 8.999999F);
+            lbl_EndDate.Font = new Font("Microsoft Sans Serif", 8.999999F);
             lbl_EndDate.Location = new Point(449, 0);
             lbl_EndDate.Name = "lbl_EndDate";
             lbl_EndDate.Size = new Size(100, 20);
@@ -128,21 +137,21 @@
             dtp_EndDate.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dtp_EndDate.CustomFormat = "MM/dd/yyyy hh:mm";
             dtp_EndDate.Enabled = false;
-            dtp_EndDate.Font = new Font("Saira", 8.25F);
+            dtp_EndDate.Font = new Font("Microsoft Sans Serif", 8.25F);
             dtp_EndDate.Format = DateTimePickerFormat.Custom;
             dtp_EndDate.Location = new Point(449, 23);
             dtp_EndDate.Name = "dtp_EndDate";
-            dtp_EndDate.Size = new Size(155, 25);
+            dtp_EndDate.Size = new Size(155, 20);
             dtp_EndDate.TabIndex = 2;
             // 
             // txt_Location
             // 
             txt_Location.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txt_Location.Enabled = false;
-            txt_Location.Font = new Font("Saira", 8.25F);
+            txt_Location.Font = new Font("Microsoft Sans Serif", 8.25F);
             txt_Location.Location = new Point(3, 23);
             txt_Location.Name = "txt_Location";
-            txt_Location.Size = new Size(279, 25);
+            txt_Location.Size = new Size(279, 20);
             txt_Location.TabIndex = 0;
             // 
             // pnl_TitleLogo
@@ -156,7 +165,7 @@
             // 
             // plt_Plot
             // 
-            plt_Plot.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            plt_Plot.Dock = DockStyle.Fill;
             plt_Plot.Location = new Point(3, 3);
             plt_Plot.Name = "plt_Plot";
             plt_Plot.Size = new Size(689, 434);
@@ -214,21 +223,12 @@
             // lbl_Legend
             // 
             lbl_Legend.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lbl_Legend.Font = new Font("Saira", 11.999999F);
+            lbl_Legend.Font = new Font("Microsoft Sans Serif", 11.999999F);
             lbl_Legend.Location = new Point(3, 0);
             lbl_Legend.Name = "lbl_Legend";
             lbl_Legend.Size = new Size(286, 34);
             lbl_Legend.TabIndex = 15;
             lbl_Legend.Text = "Legend (click to toggle)";
-            // 
-            // lbl_New
-            // 
-            lbl_New.Font = new Font("Saira", 8.999999F);
-            lbl_New.Location = new Point(610, 0);
-            lbl_New.Name = "lbl_New";
-            lbl_New.Size = new Size(84, 20);
-            lbl_New.TabIndex = 14;
-            lbl_New.Text = "New Search";
             // 
             // EcoAnalyzerGraphPage
             // 
@@ -240,6 +240,7 @@
             Controls.Add(pnl_TitleLogo);
             Name = "EcoAnalyzerGraphPage";
             Text = "EcoAnalyzerGraphPage";
+            Load += EcoAnalyzerGraphPage_Load;
             tbl_MainInput.ResumeLayout(false);
             tbl_MainInput.PerformLayout();
             tbl_PlotMain.ResumeLayout(false);

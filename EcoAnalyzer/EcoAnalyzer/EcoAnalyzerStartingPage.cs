@@ -4,12 +4,17 @@
 // https://www.flamingtext.com/Cool-Text-Generator/
 
 using EcoAnalyzerLib;
-using ScottPlot.MultiplotLayouts;
+using GMap.NET;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using System.Windows.Forms;
 
 namespace EcoAnalyzer
 {
     public partial class EcoAnalyzerStartingPage : Form
     {
+        private GMapOverlay mapMarkersOverlay;
+        private GMarkerGoogle mapMarker;
         public EcoAnalyzerStartingPage()
         {
             InitializeComponent();
@@ -17,7 +22,14 @@ namespace EcoAnalyzer
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
             gMapControl.ShowCenter = false;
             gMapControl.DragButton = MouseButtons.Left;
-            gMapControl.DisableAltForSelection = true;
+            gMapControl.DisableAltForSelection = false;
+        }
+
+        private void EcoAnalyzerStartingPage_Load(object sender, EventArgs e)
+        {
+            mapMarkersOverlay = new GMapOverlay("markers");
+            gMapControl.Overlays.Add(mapMarkersOverlay);
+            btn_Search.Enabled = false;
         }
 
         private void btn_Search_Click(object sender, EventArgs e)
@@ -27,19 +39,8 @@ namespace EcoAnalyzer
 
         private void LaunchMainWindow()
         {
-            float latitude; float longitude;
-            try
-            {
-                string[] splitted = txt_Location.Text.Split(' ');
-                latitude = float.Parse(splitted[0]);
-                longitude = float.Parse(splitted[1]);
-            }
-            catch
-            {
-                MessageBox.Show("Input località invalido. Devono essere inserite coordinate nel formato <latitudine longitudine>. Usa il pulsante per selezionare dalla mappa");
-                return;
-            }
-            var rd = new RecordDomain(latitude, longitude, dtp_StartDate.Value, dtp_EndDate.Value);
+            PointLatLng coords = mapMarker.Position;
+            var rd = new RecordDomain(((float)coords.Lat, (float)coords.Lng), dtp_StartDate.Value, dtp_EndDate.Value);
             Hide();
             EcoAnalyzerGraphPage form = new(rd);
             DialogResult dr = form.ShowDialog();
@@ -47,9 +48,21 @@ namespace EcoAnalyzer
                 Show();
         }
 
-        private void btn_SearchLocation_Click(object sender, EventArgs e)
+        private void gMapControl_OnMapClick(PointLatLng pointClick, MouseEventArgs e)
         {
-
+            if (e.Button == MouseButtons.Left)
+            {
+                btn_Search.Enabled = true;
+                if (mapMarker == null)
+                {
+                    mapMarker = new GMarkerGoogle(pointClick, GMarkerGoogleType.blue);
+                    mapMarkersOverlay.Markers.Add(mapMarker);
+                }
+                else
+                {
+                    mapMarker.Position = pointClick;
+                }
+            }
         }
     }
 }

@@ -10,6 +10,7 @@
 
   <ItemGroup>
 	  <PackageReference Include="GMap.NET.WinForms" Version="2.1.7" />
+	  <PackageReference Include="ScottPlot.WinForms" Version="5.1.58" />
   </ItemGroup>
 
   <ItemGroup>
