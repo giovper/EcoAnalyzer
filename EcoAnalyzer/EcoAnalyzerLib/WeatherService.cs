@@ -5,6 +5,18 @@ using System.Text.Json;
 
 namespace EcoAnalyzerLib
 {
+    public class DataPoint
+    {
+        public DateTime Time { get; set; }
+        public float Value { get; set; }
+
+        public DataPoint(DateTime time, float value)
+        {
+            Time = time;
+            Value = value;
+        }
+    }
+
     public class WeatherService
     {
         private string dataFolder;
@@ -12,6 +24,62 @@ namespace EcoAnalyzerLib
         public WeatherService(string dataFolder = "EcoAnalyzerData\\") 
         {
             this.dataFolder = dataFolder;
+        }
+
+        public static double ScaleFeature(RecordedFeature feature, double value)
+        {
+            //serve per evitare che le varie grandezze nel grafico abbiano scale completamente differenti
+
+            double min = 0;
+            double max = 1;
+
+            switch (feature)
+            {
+                case RecordedFeature.Temperature:
+                case RecordedFeature.ApparentTemperature:
+                    min = -10;
+                    max = 40;
+                    break;
+
+                case RecordedFeature.RelativeHumidity:
+                    min = 0;
+                    max = 100;
+                    break;
+
+                case RecordedFeature.PrecipitationProbability:
+                    min = 0;
+                    max = 20; // mm
+                    break;
+
+                case RecordedFeature.WindSpeed:
+                    min = 0;
+                    max = 100; // km/h
+                    break;
+
+                case RecordedFeature.SurfacePressure:
+                    min = 950;
+                    max = 1050;
+                    break;
+
+                case RecordedFeature.AirQuality:
+                    min = 0;
+                    max = 500; // AQI europeo
+                    break;
+
+                default:
+                    return value;
+            }
+
+            //normalizza
+            double scaled = (value - min) / (max - min);
+
+            /*
+            // clamp tra 0 e 1
+            if (scaled < 0) scaled = 0;
+            if (scaled > 1) scaled = 1;
+            */
+
+            return scaled;
         }
 
         public async Task<RecordPeriod> GetRecordsFromDomain(RecordDomain rd)
@@ -37,7 +105,7 @@ namespace EcoAnalyzerLib
                         }
                         else
                         {
-                            throw new Exception("Failed to retrieve data from API.");
+                            throw new Exception("Failed to retrieve data from API. Try changing location or time.");
                         }
                     }
                 }
@@ -58,7 +126,7 @@ namespace EcoAnalyzerLib
                 }
                 else
                 {
-                    throw new Exception("Failed to retrieve data from API.");
+                    throw new Exception("Failed to retrieve data from API. Try changing location or time.");
                 }
             }
             return rp;
@@ -116,9 +184,12 @@ namespace EcoAnalyzerLib
                     void Add(RecordedFeature rf, float value)
                     {
                         if (!rp.Data.ContainsKey(rf))
-                            rp.Data[rf] = new List<Vector2>();
+                            rp.Data[rf] = new List<DataPoint>();
 
-                        rp.Data[rf].Add(new Vector2(t, value));
+                        string timeStr = weatherHourly.GetProperty("time")[i].GetString()!;
+                        DateTime time = DateTime.Parse(timeStr);
+
+                        rp.Data[rf].Add(new DataPoint(time, value));
                     }
 
                     Add(RecordedFeature.Temperature,

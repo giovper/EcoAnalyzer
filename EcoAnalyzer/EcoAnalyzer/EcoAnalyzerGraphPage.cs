@@ -1,4 +1,5 @@
 ﻿using EcoAnalyzerLib;
+using ScottPlot;
 using ScottPlot.Plottables;
 using System;
 using System.Collections.Generic;
@@ -12,25 +13,40 @@ using System.Windows.Forms;
 
 // https://www.youtube.com/watch?v=HVH_vNAn8hs
 
+/*
+Robe da fare:
+- Export CSV dei dati (cachati in json)
+- Modalità correlazioni tra le due variabili (temperatura e qualità dell'aria)
+- Pagina di statistiche
+- Analisi giorno x giorno / settimana per settimana
+- Tabelle/grafici..
+ 
+*/
+
 namespace EcoAnalyzer
 {
     public partial class EcoAnalyzerGraphPage : Form
     {
         WeatherService weatherService;
         Dictionary<RecordedFeature, bool> shownFeatures;
+        Dictionary<RecordedFeature, System.Windows.Forms.Label> printFeatures;
         Dictionary<RecordedFeature, Scatter> featureLines;
         RecordDomain currentDomain;
         RecordPeriod recordPeriod;
 
+        Crosshair crosshair;
+
         public EcoAnalyzerGraphPage(RecordDomain recordDomain)
         {
             InitializeComponent();
-            plt_Plot.Plot.Axes.AutoScaleExpand();
+            //plt_Plot.Plot.Axes.AutoScaleExpand();
             currentDomain = recordDomain;
 
             GenerateHeader();
             GenerateLegend();
             weatherService = new();
+
+            plt_Plot.MouseMove += Plot_MouseMove;
         }
 
         private void GenerateHeader()
@@ -47,11 +63,12 @@ namespace EcoAnalyzer
             tbl_LegendButtons.RowStyles.Clear();
             tbl_LegendButtons.RowCount = 0;
             shownFeatures = new();
+            printFeatures = new();
 
             foreach (RecordedFeature rc in Enum.GetValues(typeof(RecordedFeature)))
             {
                 FeatureInformation fi = rc.GetInfo();
-                Color c = fi.Color;
+                System.Drawing.Color c = fi.Color;
                 string txt = fi.Name;
 
                 int row = tbl_LegendButtons.RowCount;
@@ -66,16 +83,34 @@ namespace EcoAnalyzer
                 btn.Size = new Size(27, 27);
                 btn.Click += ClickButtonLegend;
 
-                Label lbl = new();
+                /*CheckBox chk = new();
+                chk.Name = $"chk_{txt}";
+                chk.Tag = rc;
+                chk.Text = "";
+                chk.Size = new Size(27, 27);
+                chk.Click += HandleChangeHover;
+                chk.Checked = rc == RecordedFeature.Temperature;
+                */
+
+                System.Windows.Forms.Label lbl = new();
                 lbl.Name = $"lbl_{txt}";
                 lbl.AutoSize = true;
                 lbl.Text = txt;
                 lbl.TextAlign = ContentAlignment.MiddleLeft;
 
+                System.Windows.Forms.Label lbl_val = new();
+                lbl_val.Name = $"lbl_val{txt}";
+                lbl_val.AutoSize = true;
+                lbl_val.Text = "";
+                lbl_val.TextAlign = ContentAlignment.MiddleCenter;
+
                 tbl_LegendButtons.Controls.Add(btn, 0, row);
+                //tbl_LegendButtons.Controls.Add(chk, 1, row);
                 tbl_LegendButtons.Controls.Add(lbl, 1, row);
+                tbl_LegendButtons.Controls.Add(lbl_val, 2, row);
 
                 shownFeatures.Add(rc, true);
+                printFeatures.Add(rc, lbl_val);
             }
 
             tbl_LegendButtons.ResumeLayout();
@@ -85,7 +120,7 @@ namespace EcoAnalyzer
         {
             var rc = (RecordedFeature)((Control)sender!).Tag!;
             bool shouldShowNow = !shownFeatures[rc];
-            ((Button)sender!).BackColor = shouldShowNow ? rc.GetInfo().Color : Color.White;
+            ((Button)sender!).BackColor = shouldShowNow ? rc.GetInfo().Color : System.Drawing.Color.White;
             shownFeatures[(RecordedFeature)((Control)sender!).Tag!] = shouldShowNow;
 
             ShowFeatureLine(rc, shouldShowNow);
@@ -94,14 +129,73 @@ namespace EcoAnalyzer
         private void ShowFeatureLine(RecordedFeature rc, bool shouldShowNow)
         {
             featureLines[rc].IsVisible = shouldShowNow;
-            plt_Plot.Plot.Axes.AutoScale();
+            //plt_Plot.Plot.Axes.AutoScale();
             plt_Plot.Refresh();
+        }
+
+        private void Plot_MouseMove(object sender, MouseEventArgs e)
+        {
+            var plt = plt_Plot.Plot;
+
+            Coordinates coords = plt.GetCoordinates(e.X, e.Y);
+
+            if (crosshair == null) return;
+            else
+            {
+                crosshair.X = coords.X;
+                crosshair.Y = coords.Y;
+                crosshair.IsVisible = true;
+            }
+
+            WriteValues(coords.X);
+
+            plt_Plot.Refresh();
+        }
+
+        private void WriteValues(double mouseX)
+        {
+            foreach (var kvp in printFeatures)
+            {
+                RecordedFeature feature = kvp.Key;
+
+                var points = recordPeriod.GetAllValuesForFeature(feature);
+
+                var nearest = points
+                    .OrderBy(p => Math.Abs(p.Time.ToOADate() - mouseX))
+                    .FirstOrDefault();
+
+                if (nearest != null)
+                {
+                    kvp.Value.Text = (GetFeatureString(feature, nearest.Value));
+                }
+
+                lbl_Hover.Text = $"Tempo: {nearest.Time}";
+            }
         }
 
         private void GenerateGraph()
         {
             var plt = plt_Plot.Plot;
             plt.Clear();
+
+            crosshair = plt_Plot.Plot.Add.Crosshair(0, 0);
+            crosshair.LineColor = ScottPlot.Color.FromColor(System.Drawing.Color.Red);
+            crosshair.LineWidth = 2;
+            crosshair.IsVisible = true;
+            crosshair.HorizontalLine.IsVisible = false;
+
+            plt.Axes.SetLimitsY(-0.2, 1.2);
+            plt.Axes.Left.IsVisible = false;
+
+            double xMin = recordPeriod.Domain.StartingTime.ToOADate();
+            double xMax = recordPeriod.Domain.EndingTime.ToOADate();
+
+            double margin = (xMax - xMin) * 0.05;
+            plt.Axes.SetLimitsX(xMin - margin, xMax + margin);
+
+            plt.Axes.ContinuouslyAutoscale = false;
+
+            plt.Axes.Rules.Add(new ScottPlot.AxisRules.LockedVertical(plt.Axes.Left, - 0.2, 1.2));
 
             featureLines = new();
 
@@ -110,7 +204,7 @@ namespace EcoAnalyzer
                 if (shownFeatures[rc])
                 {
                     FeatureInformation fi = rc.GetInfo();
-                    Color c = fi.Color;
+                    System.Drawing.Color c = fi.Color;
                     string txt = fi.Name;
 
                     var recordsOfThisFeature = recordPeriod.GetAllValuesForFeature(rc);
@@ -120,8 +214,8 @@ namespace EcoAnalyzer
                     int i = 0;
                     foreach (var record in recordsOfThisFeature)
                     {
-                        x[i] = record.X;
-                        y[i] = record.Y;
+                        x[i] = record.Time.ToOADate();
+                        y[i] = WeatherService.ScaleFeature(rc, record.Value);
                         i++;
                     }
 
@@ -131,7 +225,8 @@ namespace EcoAnalyzer
                 }
             }
 
-            plt.Axes.AutoScale();
+            //plt.Axes.AutoScale();
+            plt.Axes.DateTimeTicksBottom();
             plt.HideLegend();
             plt_Plot.Refresh();
         }
@@ -148,8 +243,65 @@ namespace EcoAnalyzer
 
         private async void EcoAnalyzerGraphPage_Load(object sender, EventArgs e)
         {
-            await GatherGraphData();
-            GenerateGraph();
+            try
+            {
+                await GatherGraphData();
+                GenerateGraph();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Errore\n" + ex.Message);
+                Close();
+            }
+        }
+
+        private string GetFeatureString(RecordedFeature feature, float value, bool inserisciNome = false)
+        {
+            string nome;
+            string valore;
+
+            switch (feature)
+            {
+                case RecordedFeature.Temperature:
+                    nome = "Temperatura";
+                    valore = $"{value:F1} °C";
+                    break;
+
+                case RecordedFeature.ApparentTemperature:
+                    nome = "Temp. percepita";
+                    valore = $"{value:F1} °C";
+                    break;
+
+                case RecordedFeature.RelativeHumidity:
+                    nome = "Umidità";
+                    valore = $"{value:F0} %";
+                    break;
+
+                case RecordedFeature.PrecipitationProbability:
+                    nome = "Precipitazioni";
+                    valore = $"{value:F2} mm";
+                    break;
+
+                case RecordedFeature.WindSpeed:
+                    nome = "Vento";
+                    valore = $"{value:F1} km/h";
+                    break;
+
+                case RecordedFeature.SurfacePressure:
+                    nome = "Pressione";
+                    valore = $"{value:F0} hPa";
+                    break;
+
+                case RecordedFeature.AirQuality:
+                    nome = "Qualità aria (AQI)";
+                    valore = $"{value:F0} (AQI)";
+                    break;
+
+                default:
+                    throw new NotImplementedException();
+            }
+
+            return inserisciNome ? $"{nome}: {valore}" : valore;
         }
     }
 }
