@@ -3,24 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|c:\\users\\gvnnp\\source\\repos\\ecoanalyzer\\ecoanalyzer\\ecoanalyzer\\ecoanalyzergraphpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|solutionrelative:ecoanalyzer\\ecoanalyzergraphpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.307\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.TargetFrameworkInference.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|c:\\users\\gvnnp\\source\\repos\\ecoanalyzer\\ecoanalyzer\\ecoanalyzer\\ecoanalyzergraphpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|solutionrelative:ecoanalyzer\\ecoanalyzergraphpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6B98B499-407F-D0FB-3E3E-720CFF7E9396}|EcoAnalyzerLib\\EcoAnalyzerLib.csproj|c:\\users\\gvnnp\\source\\repos\\ecoanalyzer\\ecoanalyzer\\ecoanalyzerlib\\recordedfeature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B98B499-407F-D0FB-3E3E-720CFF7E9396}|EcoAnalyzerLib\\EcoAnalyzerLib.csproj|solutionrelative:ecoanalyzerlib\\recordedfeature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\ecoanalyzer\\ecoanalyzergraphpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|solutionrelative:ecoanalyzer\\ecoanalyzergraphpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\ecoanalyzer\\ecoanalyzerstartingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|solutionrelative:ecoanalyzer\\ecoanalyzerstartingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|c:\\users\\gvnnp\\source\\repos\\ecoanalyzer\\ecoanalyzer\\ecoanalyzer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|solutionrelative:ecoanalyzer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|c:\\users\\gvnnp\\source\\repos\\ecoanalyzer\\ecoanalyzer\\ecoanalyzer\\ecoanalyzergraphpage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|solutionrelative:ecoanalyzer\\ecoanalyzergraphpage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C3DC0FF-4557-4711-8E41-85314979CB6D}|EcoAnalyzer\\EcoAnalyzer.csproj|c:\\users\\gvnnp\\source\\repos\\ecoanalyzer\\ecoanalyzer\\ecoanalyzer\\ecoanalyzerstartingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,37 +37,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\Program.cs",
-              "RelativeDocumentMoniker": "EcoAnalyzer\\Program.cs",
-              "ToolTip": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\Program.cs",
-              "RelativeToolTip": "EcoAnalyzer\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T13:35:06.997Z",
+              "DocumentIndex": 0,
+              "Title": "Microsoft.NET.TargetFrameworkInference.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.307\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.TargetFrameworkInference.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.307\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.TargetFrameworkInference.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.307\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.TargetFrameworkInference.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.307\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.TargetFrameworkInference.targets",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAtwLQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-04-09T13:21:47.357Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EcoAnalyzerGraphPage.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerGraphPage.Designer.cs",
-              "RelativeDocumentMoniker": "EcoAnalyzer\\EcoAnalyzerGraphPage.Designer.cs",
-              "ToolTip": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerGraphPage.Designer.cs",
-              "RelativeToolTip": "EcoAnalyzer\\EcoAnalyzerGraphPage.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "RecordedFeature.cs",
+              "DocumentMoniker": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\RecordedFeature.cs",
+              "RelativeDocumentMoniker": "EcoAnalyzerLib\\RecordedFeature.cs",
+              "ToolTip": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\RecordedFeature.cs",
+              "RelativeToolTip": "EcoAnalyzerLib\\RecordedFeature.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T13:16:58.53Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-07T13:47:07.921Z"
             },
             {
               "$type": "Document",
@@ -78,7 +80,7 @@
               "RelativeDocumentMoniker": "EcoAnalyzer\\EcoAnalyzerGraphPage.cs",
               "ToolTip": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerGraphPage.cs",
               "RelativeToolTip": "EcoAnalyzer\\EcoAnalyzerGraphPage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-07T11:48:40.924Z",
               "EditorCaption": ""
@@ -98,27 +100,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EcoAnalyzerStartingPage.cs [Progettazione]",
+              "DocumentIndex": 4,
+              "Title": "EcoAnalyzerStartingPage.cs [Design]",
               "DocumentMoniker": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerStartingPage.cs",
               "RelativeDocumentMoniker": "EcoAnalyzer\\EcoAnalyzerStartingPage.cs",
-              "ToolTip": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerStartingPage.cs [Progettazione]",
-              "RelativeToolTip": "EcoAnalyzer\\EcoAnalyzerStartingPage.cs [Progettazione]",
+              "ToolTip": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerStartingPage.cs [Design]",
+              "RelativeToolTip": "EcoAnalyzer\\EcoAnalyzerStartingPage.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-07T11:36:47.657Z",
-              "EditorCaption": " [Progettazione]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EcoAnalyzerGraphPage.cs [Progettazione]",
+              "DocumentIndex": 3,
+              "Title": "EcoAnalyzerGraphPage.cs [Design]",
               "DocumentMoniker": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerGraphPage.cs",
               "RelativeDocumentMoniker": "EcoAnalyzer\\EcoAnalyzerGraphPage.cs",
-              "ToolTip": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerGraphPage.cs [Progettazione]",
-              "RelativeToolTip": "EcoAnalyzer\\EcoAnalyzerGraphPage.cs [Progettazione]",
+              "ToolTip": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerGraphPage.cs [Design]",
+              "RelativeToolTip": "EcoAnalyzer\\EcoAnalyzerGraphPage.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-07T11:36:46.866Z",
-              "EditorCaption": " [Progettazione]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",

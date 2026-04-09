@@ -26,6 +26,11 @@ namespace EcoAnalyzerLib
             this.dataFolder = dataFolder;
         }
 
+        public static double CalculateLinear(double x, double a, double b)
+        {
+            return x * a + b;
+        }
+
         public static double ScaleFeature(RecordedFeature feature, double value)
         {
             //serve per evitare che le varie grandezze nel grafico abbiano scale completamente differenti
@@ -80,6 +85,109 @@ namespace EcoAnalyzerLib
             */
 
             return scaled;
+        }
+
+        //https://it.wikipedia.org/wiki/Regressione_lineare#Regressione_lineare_semplice
+        // https://www.youtube.com/watch?v=rmqQkgs4uHw
+        public static (double a, double b, double errore_medio) RegressioneLineare(List<double> x, List<double> y)
+        {
+            if (x.Count != y.Count || x.Count == 0)
+                throw new ArgumentException("Le liste x e y devono avere la stessa lunghezza e non essere vuote.");
+
+            int n = x.Count;
+
+            double avgX = x.Average();
+            double avgY = y.Average();
+
+            double num = 0;
+            double den = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                double dx = (x[i] - avgX);
+                num += dx * (y[i] - avgY);
+                den += Math.Pow(dx, 2);
+            }
+
+            double a;
+            double b;
+
+            if (den == 0) //non c'è varianza
+            {
+                a = 0;
+                b = y.Average();
+                return (a, b, ErrorePercentuale(x, y, a, b));
+            }
+
+            a = num / den;
+            b = avgY - a * avgX;
+
+            double errore_medio;
+            errore_medio = ErrorePercentuale(x, y, a, b);
+
+            return (a, b, errore_medio);
+        }
+
+        private static double ErrorePercentuale(List<double> x, List<double> y, double a, double b)
+        {
+            double somma = 0;
+
+            for (int i = 0; i < x.Count; i++)
+            {
+                double errore = Math.Abs((y[i] - (a * x[i] + b)) / y[i]);
+                somma += errore;
+            }
+
+            return (somma / x.Count);
+        }
+
+        public static string GetFeatureString(RecordedFeature feature, float value, bool inserisciNome = false)
+        {
+            string nome;
+            string valore;
+
+            switch (feature)
+            {
+                case RecordedFeature.Temperature:
+                    nome = "Temperatura";
+                    valore = $"{value:F1} °C";
+                    break;
+
+                case RecordedFeature.ApparentTemperature:
+                    nome = "Temp. percepita";
+                    valore = $"{value:F1} °C";
+                    break;
+
+                case RecordedFeature.RelativeHumidity:
+                    nome = "Umidità";
+                    valore = $"{value:F0} %";
+                    break;
+
+                case RecordedFeature.PrecipitationProbability:
+                    nome = "Precipitazioni";
+                    valore = $"{value:F2} mm";
+                    break;
+
+                case RecordedFeature.WindSpeed:
+                    nome = "Vento";
+                    valore = $"{value:F1} km/h";
+                    break;
+
+                case RecordedFeature.SurfacePressure:
+                    nome = "Pressione";
+                    valore = $"{value:F0} hPa";
+                    break;
+
+                case RecordedFeature.AirQuality:
+                    nome = "Qualità aria (AQI)";
+                    valore = $"{value:F0} (AQI)";
+                    break;
+
+                default:
+                    throw new NotImplementedException();
+            }
+
+            return inserisciNome ? $"{nome}: {valore}" : valore;
         }
 
         public async Task<(RecordPeriod, string json)> GetRecordsFromDomain(RecordDomain rd)

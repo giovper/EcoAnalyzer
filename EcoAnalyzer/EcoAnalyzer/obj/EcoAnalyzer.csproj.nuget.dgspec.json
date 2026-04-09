@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\12999427\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer.csproj": {}
+    "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\12999427\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj": {
+    "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\12999427\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
+        "projectUniqueName": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
         "projectName": "EcoAnalyzerLib",
-        "projectPath": "C:\\Users\\12999427\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
-        "packagesPath": "C:\\Users\\12999427\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\12999427\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\obj\\",
+        "projectPath": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj",
+        "packagesPath": "C:\\Users\\gvnnp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\12999427\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gvnnp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -343,20 +343,20 @@
         }
       }
     },
-    "C:\\Users\\12999427\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer.csproj": {
+    "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\12999427\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer.csproj",
+        "projectUniqueName": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer.csproj",
         "projectName": "EcoAnalyzer",
-        "projectPath": "C:\\Users\\12999427\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer.csproj",
-        "packagesPath": "C:\\Users\\12999427\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\12999427\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\obj\\",
+        "projectPath": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer.csproj",
+        "packagesPath": "C:\\Users\\gvnnp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\12999427\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gvnnp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -371,8 +371,8 @@
           "net10.0-windows7.0": {
             "targetAlias": "net10.0-windows",
             "projectReferences": {
-              "C:\\Users\\12999427\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj": {
-                "projectPath": "C:\\Users\\12999427\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj"
+              "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj": {
+                "projectPath": "C:\\Users\\gvnnp\\source\\repos\\EcoAnalyzer\\EcoAnalyzer\\EcoAnalyzerLib\\EcoAnalyzerLib.csproj"
               }
             }
           }

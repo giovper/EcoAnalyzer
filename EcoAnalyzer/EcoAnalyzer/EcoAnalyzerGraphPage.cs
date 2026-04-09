@@ -16,7 +16,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 /*
 Robe da fare:
-- Export CSV dei dati (cachati in json)
 - Modalità correlazioni tra le due variabili (temperatura e qualità dell'aria)
 - Pagina di statistiche
 - Analisi giorno x giorno / settimana per settimana
@@ -168,7 +167,7 @@ namespace EcoAnalyzer
 
                 if (nearest != null)
                 {
-                    kvp.Value.Text = (GetFeatureString(feature, nearest.Value));
+                    kvp.Value.Text = (WeatherService.GetFeatureString(feature, nearest.Value));
                 }
 
                 lbl_Hover.Text = $"Tempo: {nearest.Time}";
@@ -257,54 +256,6 @@ namespace EcoAnalyzer
             }
         }
 
-        private string GetFeatureString(RecordedFeature feature, float value, bool inserisciNome = false)
-        {
-            string nome;
-            string valore;
-
-            switch (feature)
-            {
-                case RecordedFeature.Temperature:
-                    nome = "Temperatura";
-                    valore = $"{value:F1} °C";
-                    break;
-
-                case RecordedFeature.ApparentTemperature:
-                    nome = "Temp. percepita";
-                    valore = $"{value:F1} °C";
-                    break;
-
-                case RecordedFeature.RelativeHumidity:
-                    nome = "Umidità";
-                    valore = $"{value:F0} %";
-                    break;
-
-                case RecordedFeature.PrecipitationProbability:
-                    nome = "Precipitazioni";
-                    valore = $"{value:F2} mm";
-                    break;
-
-                case RecordedFeature.WindSpeed:
-                    nome = "Vento";
-                    valore = $"{value:F1} km/h";
-                    break;
-
-                case RecordedFeature.SurfacePressure:
-                    nome = "Pressione";
-                    valore = $"{value:F0} hPa";
-                    break;
-
-                case RecordedFeature.AirQuality:
-                    nome = "Qualità aria (AQI)";
-                    valore = $"{value:F0} (AQI)";
-                    break;
-
-                default:
-                    throw new NotImplementedException();
-            }
-
-            return inserisciNome ? $"{nome}: {valore}" : valore;
-        }
 
         private void btn_CSV_Click(object sender, EventArgs e)
         {
@@ -342,6 +293,12 @@ namespace EcoAnalyzer
                 MessageBox.Show("File salvato con successo!");
             }
 
+        }
+
+        private void btn_Stats_Click(object sender, EventArgs e)
+        {
+            EcoAnalyzerStatsForm statsForm = new EcoAnalyzerStatsForm(recordPeriod);
+            statsForm.Show();
         }
     }
 }

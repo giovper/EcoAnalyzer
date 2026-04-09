@@ -45,9 +45,11 @@
             lbl_Hover = new Label();
             tbl_LegendButtons = new TableLayoutPanel();
             tbl_Export = new TableLayoutPanel();
+            lbl_Export = new Label();
             btn_CSV = new Button();
             btn_JSON = new Button();
-            lbl_Export = new Label();
+            lbl_Stats = new Label();
+            btn_Stats = new Button();
             tbl_MainInput.SuspendLayout();
             tbl_PlotMain.SuspendLayout();
             tbl_Legend.SuspendLayout();
@@ -56,10 +58,9 @@
             // 
             // btn_Back
             // 
-            btn_Back.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btn_Back.BackgroundImage = Properties.Resources.back_arrow;
             btn_Back.BackgroundImageLayout = ImageLayout.Zoom;
-            btn_Back.Location = new Point(623, 23);
+            btn_Back.Location = new Point(588, 23);
             btn_Back.Name = "btn_Back";
             btn_Back.Size = new Size(36, 30);
             btn_Back.TabIndex = 13;
@@ -69,13 +70,16 @@
             // tbl_MainInput
             // 
             tbl_MainInput.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbl_MainInput.ColumnCount = 4;
-            tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40.94981F));
-            tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.1653919F));
-            tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.1653976F));
-            tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.7194023F));
-            tbl_MainInput.Controls.Add(lbl_New, 3, 0);
-            tbl_MainInput.Controls.Add(btn_Back, 3, 1);
+            tbl_MainInput.ColumnCount = 5;
+            tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 36.23877F));
+            tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.5003471F));
+            tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.5003548F));
+            tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 11.504425F));
+            tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 11.2561064F));
+            tbl_MainInput.Controls.Add(btn_Stats, 3, 1);
+            tbl_MainInput.Controls.Add(lbl_Stats, 3, 0);
+            tbl_MainInput.Controls.Add(lbl_New, 4, 0);
+            tbl_MainInput.Controls.Add(btn_Back, 4, 1);
             tbl_MainInput.Controls.Add(lbl_Location, 0, 0);
             tbl_MainInput.Controls.Add(dtp_StartDate, 1, 1);
             tbl_MainInput.Controls.Add(lbl_StartDate, 1, 0);
@@ -87,18 +91,17 @@
             tbl_MainInput.RowCount = 2;
             tbl_MainInput.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tbl_MainInput.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tbl_MainInput.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tbl_MainInput.Size = new Size(662, 56);
             tbl_MainInput.TabIndex = 12;
             // 
             // lbl_New
             // 
             lbl_New.Font = new Font("Microsoft Sans Serif", 8.999999F);
-            lbl_New.Location = new Point(580, 0);
+            lbl_New.Location = new Point(588, 0);
             lbl_New.Name = "lbl_New";
-            lbl_New.Size = new Size(79, 20);
+            lbl_New.Size = new Size(71, 20);
             lbl_New.TabIndex = 14;
-            lbl_New.Text = "New Search";
+            lbl_New.Text = "New";
             // 
             // lbl_Location
             // 
@@ -116,15 +119,15 @@
             dtp_StartDate.Enabled = false;
             dtp_StartDate.Font = new Font("Microsoft Sans Serif", 8.25F);
             dtp_StartDate.Format = DateTimePickerFormat.Custom;
-            dtp_StartDate.Location = new Point(274, 23);
+            dtp_StartDate.Location = new Point(242, 23);
             dtp_StartDate.Name = "dtp_StartDate";
-            dtp_StartDate.Size = new Size(147, 20);
+            dtp_StartDate.Size = new Size(129, 20);
             dtp_StartDate.TabIndex = 1;
             // 
             // lbl_StartDate
             // 
             lbl_StartDate.Font = new Font("Microsoft Sans Serif", 8.999999F);
-            lbl_StartDate.Location = new Point(274, 0);
+            lbl_StartDate.Location = new Point(242, 0);
             lbl_StartDate.Name = "lbl_StartDate";
             lbl_StartDate.Size = new Size(100, 20);
             lbl_StartDate.TabIndex = 5;
@@ -133,7 +136,7 @@
             // lbl_EndDate
             // 
             lbl_EndDate.Font = new Font("Microsoft Sans Serif", 8.999999F);
-            lbl_EndDate.Location = new Point(427, 0);
+            lbl_EndDate.Location = new Point(377, 0);
             lbl_EndDate.Name = "lbl_EndDate";
             lbl_EndDate.Size = new Size(100, 20);
             lbl_EndDate.TabIndex = 6;
@@ -146,9 +149,9 @@
             dtp_EndDate.Enabled = false;
             dtp_EndDate.Font = new Font("Microsoft Sans Serif", 8.25F);
             dtp_EndDate.Format = DateTimePickerFormat.Custom;
-            dtp_EndDate.Location = new Point(427, 23);
+            dtp_EndDate.Location = new Point(377, 23);
             dtp_EndDate.Name = "dtp_EndDate";
-            dtp_EndDate.Size = new Size(147, 20);
+            dtp_EndDate.Size = new Size(129, 20);
             dtp_EndDate.TabIndex = 2;
             // 
             // txt_Location
@@ -158,7 +161,7 @@
             txt_Location.Font = new Font("Microsoft Sans Serif", 8.25F);
             txt_Location.Location = new Point(3, 23);
             txt_Location.Name = "txt_Location";
-            txt_Location.Size = new Size(265, 20);
+            txt_Location.Size = new Size(233, 20);
             txt_Location.TabIndex = 0;
             // 
             // pnl_TitleLogo
@@ -264,6 +267,16 @@
             tbl_Export.Size = new Size(288, 34);
             tbl_Export.TabIndex = 18;
             // 
+            // lbl_Export
+            // 
+            lbl_Export.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lbl_Export.Font = new Font("Microsoft Sans Serif", 11.999999F);
+            lbl_Export.Location = new Point(3, 0);
+            lbl_Export.Name = "lbl_Export";
+            lbl_Export.Size = new Size(138, 34);
+            lbl_Export.TabIndex = 17;
+            lbl_Export.Text = "Export";
+            // 
             // btn_CSV
             // 
             btn_CSV.BackgroundImageLayout = ImageLayout.Zoom;
@@ -286,15 +299,25 @@
             btn_JSON.UseVisualStyleBackColor = false;
             btn_JSON.Click += btn_JSON_Click;
             // 
-            // lbl_Export
+            // lbl_Stats
             // 
-            lbl_Export.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lbl_Export.Font = new Font("Microsoft Sans Serif", 11.999999F);
-            lbl_Export.Location = new Point(3, 0);
-            lbl_Export.Name = "lbl_Export";
-            lbl_Export.Size = new Size(138, 34);
-            lbl_Export.TabIndex = 17;
-            lbl_Export.Text = "Export";
+            lbl_Stats.Font = new Font("Microsoft Sans Serif", 8.999999F);
+            lbl_Stats.Location = new Point(512, 0);
+            lbl_Stats.Name = "lbl_Stats";
+            lbl_Stats.Size = new Size(70, 20);
+            lbl_Stats.TabIndex = 15;
+            lbl_Stats.Text = "Stats";
+            // 
+            // btn_Stats
+            // 
+            btn_Stats.BackgroundImage = Properties.Resources.graph;
+            btn_Stats.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_Stats.Location = new Point(512, 23);
+            btn_Stats.Name = "btn_Stats";
+            btn_Stats.Size = new Size(36, 30);
+            btn_Stats.TabIndex = 16;
+            btn_Stats.UseVisualStyleBackColor = false;
+            btn_Stats.Click += btn_Stats_Click;
             // 
             // EcoAnalyzerGraphPage
             // 
@@ -337,5 +360,7 @@
         private Button btn_CSV;
         private Button btn_JSON;
         private Label lbl_Export;
+        private Button btn_Stats;
+        private Label lbl_Stats;
     }
 }

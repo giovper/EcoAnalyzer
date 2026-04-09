@@ -11,7 +11,7 @@ namespace EcoAnalyzerLib
     public enum RecordedFeature
     {
         //[Description("Temperature")]
-        [FeatureInformation("Temperature", 220, 20, 60)]
+        [FeatureInformation("Temperature", 220, 20, 60, true)]
         Temperature,
 
         [FeatureInformation("Humidity", 30, 144, 255)]
@@ -20,10 +20,10 @@ namespace EcoAnalyzerLib
         [FeatureInformation("Apparent Temperature", 255, 140, 0)]
         ApparentTemperature,
 
-        [FeatureInformation("Precipitation %", 138, 43, 226)]
+        [FeatureInformation("Precipitation %", 138, 43, 226, true)]
         PrecipitationProbability,
 
-        [FeatureInformation("Wind Speed", 0, 200, 140)]
+        [FeatureInformation("Wind Speed", 0, 200, 140, true)]
         WindSpeed,
 
         [FeatureInformation("Pressure", 128, 128, 128)]
