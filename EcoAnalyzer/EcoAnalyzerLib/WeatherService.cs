@@ -82,8 +82,9 @@ namespace EcoAnalyzerLib
             return scaled;
         }
 
-        public async Task<RecordPeriod> GetRecordsFromDomain(RecordDomain rd)
+        public async Task<(RecordPeriod, string json)> GetRecordsFromDomain(RecordDomain rd)
         {
+            string jsonData = "";
             RecordPeriod rp = new RecordPeriod(rd);
             if (File.Exists(dataFolder + cacheFilename))
             {
@@ -99,7 +100,7 @@ namespace EcoAnalyzerLib
                         if (!retrievedData.gotError)
                         {
                             cachedData.Add(retrievedData.data);
-                            string jsonData = JsonSerializer.Serialize(cachedData);
+                            jsonData = JsonSerializer.Serialize(cachedData);
                             File.WriteAllText(dataFolder + cacheFilename, jsonData);
                             rp = retrievedData.data;
                         }
@@ -116,7 +117,7 @@ namespace EcoAnalyzerLib
                 if (!retrievedData.gotError)
                 {
                     List<RecordPeriod> newCache = new List<RecordPeriod>() { retrievedData.data };
-                    string jsonData = JsonSerializer.Serialize(newCache);
+                    jsonData = JsonSerializer.Serialize(newCache);
                     if (!Path.Exists(dataFolder))
                     {
                         Directory.CreateDirectory(dataFolder);
@@ -129,7 +130,7 @@ namespace EcoAnalyzerLib
                     throw new Exception("Failed to retrieve data from API. Try changing location or time.");
                 }
             }
-            return rp;
+            return (rp, jsonData);
         }
 
         private List<RecordPeriod>? GetRecordsFromFile(string filename)

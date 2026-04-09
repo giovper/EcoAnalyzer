@@ -32,5 +32,37 @@ namespace EcoAnalyzerLib
         {
             return Data[rf];
         }
+
+        public string ObtainCSV(string separator = "\t")
+        {
+            string output = "Tempo\t";
+
+            foreach (RecordedFeature rc in Enum.GetValues(typeof(RecordedFeature)))
+            {
+                output += rc.GetInfo().Name + separator;
+            }
+
+            output += "\n";
+
+            Dictionary<RecordedFeature, List<DataPoint>> values = new();
+            foreach (RecordedFeature rc in Enum.GetValues(typeof(RecordedFeature)))
+            {
+                values.Add(rc, GetAllValuesForFeature(rc));
+            }
+
+            for (int i = 0; i<values[0].Count; i++)
+            {
+                output += values[RecordedFeature.Temperature][i].Time + separator;
+
+                foreach (RecordedFeature rc in Enum.GetValues(typeof(RecordedFeature)))
+                {
+                    output += values[rc][i].Value + separator;
+                }
+
+                output += "\n";
+            }
+
+            return output;
+        }
     }
 }

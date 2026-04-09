@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EcoAnalyzerLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+933b3e32646718172cf6822cf2cfb3b45eab1765")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1b3f2abb941b680bd0ca037f94b86396365fb1c")]
 [assembly: System.Reflection.AssemblyProductAttribute("EcoAnalyzerLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EcoAnalyzerLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

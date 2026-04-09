@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 // https://www.youtube.com/watch?v=HVH_vNAn8hs
 
@@ -33,6 +34,7 @@ namespace EcoAnalyzer
         Dictionary<RecordedFeature, Scatter> featureLines;
         RecordDomain currentDomain;
         RecordPeriod recordPeriod;
+        string json;
 
         Crosshair crosshair;
 
@@ -75,7 +77,7 @@ namespace EcoAnalyzer
                 tbl_LegendButtons.RowCount = row + 1;
                 tbl_LegendButtons.RowStyles.Add(new RowStyle(SizeType.Absolute, 30));
 
-                Button btn = new();
+                System.Windows.Forms.Button btn = new();
                 btn.Name = $"btn_{txt}";
                 btn.Tag = rc;
                 btn.Text = "";
@@ -120,7 +122,7 @@ namespace EcoAnalyzer
         {
             var rc = (RecordedFeature)((Control)sender!).Tag!;
             bool shouldShowNow = !shownFeatures[rc];
-            ((Button)sender!).BackColor = shouldShowNow ? rc.GetInfo().Color : System.Drawing.Color.White;
+            ((System.Windows.Forms.Button)sender!).BackColor = shouldShowNow ? rc.GetInfo().Color : System.Drawing.Color.White;
             shownFeatures[(RecordedFeature)((Control)sender!).Tag!] = shouldShowNow;
 
             ShowFeatureLine(rc, shouldShowNow);
@@ -195,7 +197,7 @@ namespace EcoAnalyzer
 
             plt.Axes.ContinuouslyAutoscale = false;
 
-            plt.Axes.Rules.Add(new ScottPlot.AxisRules.LockedVertical(plt.Axes.Left, - 0.2, 1.2));
+            plt.Axes.Rules.Add(new ScottPlot.AxisRules.LockedVertical(plt.Axes.Left, -0.2, 1.2));
 
             featureLines = new();
 
@@ -233,7 +235,7 @@ namespace EcoAnalyzer
 
         private async Task GatherGraphData()
         {
-            recordPeriod = await weatherService.GetRecordsFromDomain(currentDomain);
+            (recordPeriod, json) = await weatherService.GetRecordsFromDomain(currentDomain);
         }
 
         private void btn_Back_Click(object sender, EventArgs e)
@@ -302,6 +304,44 @@ namespace EcoAnalyzer
             }
 
             return inserisciNome ? $"{nome}: {valore}" : valore;
+        }
+
+        private void btn_CSV_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "File CSV (*.csv)|*.csv";
+
+            saveFileDialog1.Title = "Salva file";
+            saveFileDialog1.DefaultExt = "csv";
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string percorsoFile = saveFileDialog1.FileName;
+                System.IO.File.WriteAllText(percorsoFile, recordPeriod.ObtainCSV());
+
+                MessageBox.Show("File salvato con successo!");
+            }
+
+        }
+
+        private void btn_JSON_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "File JSON (*.json)|*.json";
+
+            saveFileDialog1.Title = "Salva file";
+            saveFileDialog1.DefaultExt = "json";
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string percorsoFile = saveFileDialog1.FileName;
+                System.IO.File.WriteAllText(percorsoFile, json);
+
+                MessageBox.Show("File salvato con successo!");
+            }
+
         }
     }
 }

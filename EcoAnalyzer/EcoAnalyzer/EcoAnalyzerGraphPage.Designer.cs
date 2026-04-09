@@ -44,9 +44,14 @@
             lbl_Legend = new Label();
             lbl_Hover = new Label();
             tbl_LegendButtons = new TableLayoutPanel();
+            tbl_Export = new TableLayoutPanel();
+            btn_CSV = new Button();
+            btn_JSON = new Button();
+            lbl_Export = new Label();
             tbl_MainInput.SuspendLayout();
             tbl_PlotMain.SuspendLayout();
             tbl_Legend.SuspendLayout();
+            tbl_Export.SuspendLayout();
             SuspendLayout();
             // 
             // btn_Back
@@ -65,7 +70,7 @@
             // 
             tbl_MainInput.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbl_MainInput.ColumnCount = 4;
-            tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40.9498138F));
+            tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40.94981F));
             tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.1653919F));
             tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.1653976F));
             tbl_MainInput.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.7194023F));
@@ -82,6 +87,7 @@
             tbl_MainInput.RowCount = 2;
             tbl_MainInput.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tbl_MainInput.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tbl_MainInput.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tbl_MainInput.Size = new Size(662, 56);
             tbl_MainInput.TabIndex = 12;
             // 
@@ -195,12 +201,14 @@
             tbl_Legend.Controls.Add(lbl_Legend, 0, 0);
             tbl_Legend.Controls.Add(lbl_Hover, 0, 1);
             tbl_Legend.Controls.Add(tbl_LegendButtons, 0, 2);
+            tbl_Legend.Controls.Add(tbl_Export, 0, 3);
             tbl_Legend.Location = new Point(661, 3);
             tbl_Legend.Name = "tbl_Legend";
-            tbl_Legend.RowCount = 3;
+            tbl_Legend.RowCount = 4;
             tbl_Legend.RowStyles.Add(new RowStyle());
             tbl_Legend.RowStyles.Add(new RowStyle());
             tbl_Legend.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tbl_Legend.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tbl_Legend.Size = new Size(294, 468);
             tbl_Legend.TabIndex = 15;
             // 
@@ -235,8 +243,58 @@
             tbl_LegendButtons.Name = "tbl_LegendButtons";
             tbl_LegendButtons.RowCount = 1;
             tbl_LegendButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tbl_LegendButtons.Size = new Size(288, 397);
+            tbl_LegendButtons.Size = new Size(288, 357);
             tbl_LegendButtons.TabIndex = 16;
+            // 
+            // tbl_Export
+            // 
+            tbl_Export.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tbl_Export.ColumnCount = 3;
+            tbl_Export.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tbl_Export.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tbl_Export.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tbl_Export.Controls.Add(lbl_Export, 0, 0);
+            tbl_Export.Controls.Add(btn_CSV, 1, 0);
+            tbl_Export.Controls.Add(btn_JSON, 2, 0);
+            tbl_Export.Location = new Point(3, 431);
+            tbl_Export.Name = "tbl_Export";
+            tbl_Export.RowCount = 1;
+            tbl_Export.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tbl_Export.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tbl_Export.Size = new Size(288, 34);
+            tbl_Export.TabIndex = 18;
+            // 
+            // btn_CSV
+            // 
+            btn_CSV.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_CSV.Location = new Point(147, 3);
+            btn_CSV.Name = "btn_CSV";
+            btn_CSV.Size = new Size(61, 28);
+            btn_CSV.TabIndex = 15;
+            btn_CSV.Text = "CSV";
+            btn_CSV.UseVisualStyleBackColor = false;
+            btn_CSV.Click += btn_CSV_Click;
+            // 
+            // btn_JSON
+            // 
+            btn_JSON.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_JSON.Location = new Point(219, 3);
+            btn_JSON.Name = "btn_JSON";
+            btn_JSON.Size = new Size(60, 28);
+            btn_JSON.TabIndex = 16;
+            btn_JSON.Text = "JSON";
+            btn_JSON.UseVisualStyleBackColor = false;
+            btn_JSON.Click += btn_JSON_Click;
+            // 
+            // lbl_Export
+            // 
+            lbl_Export.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lbl_Export.Font = new Font("Microsoft Sans Serif", 11.999999F);
+            lbl_Export.Location = new Point(3, 0);
+            lbl_Export.Name = "lbl_Export";
+            lbl_Export.Size = new Size(138, 34);
+            lbl_Export.TabIndex = 17;
+            lbl_Export.Text = "Export";
             // 
             // EcoAnalyzerGraphPage
             // 
@@ -253,6 +311,7 @@
             tbl_MainInput.PerformLayout();
             tbl_PlotMain.ResumeLayout(false);
             tbl_Legend.ResumeLayout(false);
+            tbl_Export.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -274,5 +333,9 @@
         private Label lbl_Legend;
         private Label lbl_New;
         private Label lbl_Hover;
+        private TableLayoutPanel tbl_Export;
+        private Button btn_CSV;
+        private Button btn_JSON;
+        private Label lbl_Export;
     }
 }
