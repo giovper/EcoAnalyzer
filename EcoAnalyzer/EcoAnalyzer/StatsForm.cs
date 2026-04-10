@@ -18,6 +18,8 @@ namespace EcoAnalyzer
 
         Crosshair crosshair;
 
+        double a, b;
+
         public EcoAnalyzerStatsForm(RecordPeriod rp)
         {
             InitializeComponent();
@@ -79,9 +81,11 @@ namespace EcoAnalyzer
             List<double> air = recordsAirQuality.Select(v => (double)v.Value).ToList();
             List<double> values = recordsOfThisFeature.Select(v => (double)v.Value).ToList();
 
-            var (a, b, em) = WeatherService.RegressioneLineare(values, air);
+            (a, b, double em) = WeatherService.RegressioneLineare(values, air);
 
-            MessageBox.Show($"La retta di regressione è: y = {b:F2} + {a:F2}x | Errore medio: {em * 100}");
+            //MessageBox.Show($"La retta di regressione è: y = {b:F2} + {a:F2}x | Errore medio: {em * 100}");
+
+            lbl_Equation.Text = $"La retta di regressione è: y = aqi = f({rc.GetInfo().Name}) = {b:F2} + {a:F2}x \nErrore medio: {em * 100:F2}%";
 
 
             List<EcoAnalyzerLib.DataPoint> reg_points = new();
@@ -144,7 +148,6 @@ namespace EcoAnalyzer
         {
             if (sender is RadioButton rdo && rdo.Checked)
             {
-                MessageBox.Show(rdo.Name);
                 GenerateGraph((RecordedFeature)rdo.Tag);
             }
         }
@@ -174,16 +177,26 @@ namespace EcoAnalyzer
 
             var points = recordPeriod.GetAllValuesForFeature(shownFeature);
 
-            var nearest = points
+            var nearest_feature = points
                 .OrderBy(p => Math.Abs(p.Time.ToOADate() - x))
-                .FirstOrDefault();
+                .First();
+
+            var nearest_air_quality = recordPeriod.GetAllValuesForFeature(RecordedFeature.AirQuality)
+                .OrderBy(p => Math.Abs(p.Time.ToOADate() - x))
+                .First();
+
+            double aqi_now = nearest_air_quality.Value;
+            double aqi_now_predict = WeatherService.CalculateLinear(nearest_feature.Value, a, b);
+
+            double percentage_error = (aqi_now_predict - aqi_now) / aqi_now;
 
             string str = "..";
-            if (nearest != null)
+            if (nearest_feature != null)
             {
-                str = $"Data: {time} | Selezionata:\n" + (WeatherService.GetFeatureString(shownFeature, nearest.Value, true));
+                str = $"Data: {time}\nSelezionata:" + (WeatherService.GetFeatureString(shownFeature, nearest_feature.Value, true) +
+                    $"\n{shownFeature.GetInfo().Name} = {nearest_feature.Value}\naqi = {aqi_now}\naqi predetto regressione = {Math.Round(aqi_now_predict, 1)}\nErrore = {Math.Round(percentage_error*100)}%"
+                );
             }
-
             //aggiungi l'errore
 
             lbl_Hover.Text = str;
