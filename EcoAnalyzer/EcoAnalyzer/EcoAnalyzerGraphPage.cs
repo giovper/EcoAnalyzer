@@ -297,6 +297,13 @@ namespace EcoAnalyzer
 
         private void btn_Stats_Click(object sender, EventArgs e)
         {
+            if (recordPeriod == null) return;
+
+            if (recordPeriod.Domain.EndingTime - recordPeriod.Domain.StartingTime > TimeSpan.FromDays(5))
+            {
+                MessageBox.Show("E' probabile che la regressione lineare non sia molto precisa, visto che considera una sola variabile alla volta per estrapolare una predizione di AQI, e in un periodo di tempo maggiore le altre misure possono cambiare molto");
+            }
+
             EcoAnalyzerStatsForm statsForm = new EcoAnalyzerStatsForm(recordPeriod);
             statsForm.Show();
         }
